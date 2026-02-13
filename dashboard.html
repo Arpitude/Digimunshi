@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Axio — Dashboard</title>
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/dummyData.js"></script>
+  <script src="assets/js/charts.js" defer></script>
+  <script>
+    // Check authentication on page load (redirect to login if not authenticated)
+    if (!document.cookie.includes('PHPSESSID')) {
+      window.location.href = 'index.html';
+    }
+
+    // Add logout functionality
+    function logout() {
+      // Clear session by calling logout endpoint
+      fetch("https://axio-backendapp.onrender.com/api/logout.php", {
+        method: 'GET',
+        credentials: 'include'
+      }).then(() => {
+        window.location.href = 'index.html';
+      });
+    }
+  </script>
+</head>
+
+<body class="dashboard-body">
+
+  <header class="header">
+    <h1 class="brand">Axio</h1>
+    <a href="profile.html" class="profile-btn">Profile</a>
+  </header>
+
+  <section class="cards-container">
+
+    <div class="card card-1 slide-up">
+      <h3>Total Spend (Jan)</h3>
+      <h1>₹ <span id="totalSpend">0</span></h1>
+    </div>
+
+    <div class="card card-2 slide-up">
+      <h3>Total Income</h3>
+      <h1>₹ <span id="totalIncome">0</span></h1>
+    </div>
+
+    <div class="card card-3 slide-up">
+      <h3>Remaining</h3>
+      <h1>₹ <span id="remaining">0</span></h1>
+    </div>
+
+  </section>
+
+  <section class="chart-section fade-in">
+    <h2>Spending Breakdown</h2>
+    <canvas id="pieChart"></canvas>
+  </section>
+
+  <section class="chart-section fade-in">
+    <h2>Monthly Spend Trend</h2>
+    <canvas id="barChart"></canvas>
+  </section>
+
+  <footer class="footer-nav">
+    <a href="dashboard.html">🏠</a>
+    <a href="add-expense.html">➕</a>
+    <a href="expenses.html">📄</a>
+  </footer>
+
+</body>
+</html>

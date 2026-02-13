@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Axio — Login</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="assets/js/toast.js"></script>
+</head>
+
+<body class="login-body">
+
+  <div class="login-container glass fade-in">
+<img src="https://ui-avatars.com/api/?name=Axio&background=6366f1&color=fff&size=128&bold=true" class="logo" alt="Axio Logo" />
+    <h2 class="title">Welcome Back 👋</h2>
+
+    <form>
+      <input type="email" id="email" placeholder="Email" class="input" />
+      <input type="password" id="password" placeholder="Password" class="input" />
+      <button type="button" onclick="login()" class="btn-primary">Login</button>
+    </form>
+
+    <p class="footer-text">Axio Expense Tracker © 2026</p>
+  </div>
+
+  <script>
+    gsap.from(".login-container", { y: 80, opacity: 0, duration: 1 });
+  </script>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>  
+

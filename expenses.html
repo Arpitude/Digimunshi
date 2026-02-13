@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/app.js" defer></script>
+  <script>
+    // Check authentication on page load (redirect to login if not authenticated)
+    if (!document.cookie.includes('PHPSESSID')) {
+      window.location.href = 'index.html';
+    }
+  </script>
+</head>
+
+<body class="list-body">
+
+  <h2 class="page-title">All Expenses</h2>
+
+  <div id="expenseList" class="expense-list slide-up"></div>
+
+  <footer class="footer-nav">
+    <a href="dashboard.html">🏠</a>
+    <a href="add-expense.html">➕</a>
+    <a href="expenses.html" class="active">📄</a>
+  </footer>
+
+</body>
+</html>

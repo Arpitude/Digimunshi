@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <script src="assets/js/app.js" defer></script>
+  <script>
+    // Check authentication on page load (redirect to login if not authenticated)
+    if (!document.cookie.includes('PHPSESSID')) {
+      // Session cookie not found, redirect to login
+      window.location.href = 'index.html';
+    }
+  </script>
+</head>
+
+<body class="form-body fade-in">
+
+  <div class="form-card glass slide-up">
+    <h2>Add Expense</h2>
+
+    <input type="number" id="amount" class="input" placeholder="Amount (₹)" />
+
+    <select id="category" class="input">
+      <option>Food</option>
+      <option>Shopping</option>
+      <option>Bills</option>
+      <option>Travel</option>
+      <option>Other</option>
+    </select>
+
+    <input type="date" id="date" class="input" />
+
+    <textarea id="note" class="input" placeholder="Note"></textarea>
+
+    <button onclick="saveExpense()" class="btn-primary">Save</button>
+  </div>
+
+</body>
+</html>
